@@ -307,7 +307,7 @@ Evaluting for the enterprise level code clones may give us a different results a
 
 ## Process
 
-We followed the similar method to generate the embeddings of AST nodes (Vocubulary) for a different dataset. Later, evaluated with the trained weights from Assignment 2 for the new dataset.
+We followed a similar method to generate the embeddings of AST nodes (Vocubulary) for a different dataset. Later, evaluated with the trained weights from Assignment 2 for the new dataset.
 
 ## Data
 
