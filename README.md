@@ -1,5 +1,5 @@
 # Research Experiment to address the threat to validity
-This project follows the reproduction project of [cross language clone detection model][1] and tried to address the threat of cross language clone detection model.
+This research experiment is a part of Mining Software Repository course where this project follows the reproduction project of [cross language clone detection model][1] and tries to address the threat of cross language clone detection model.
 
 
 As mentioned by the authors of the paper, the data used for training and testing the clone-detection model is from a competitive source
