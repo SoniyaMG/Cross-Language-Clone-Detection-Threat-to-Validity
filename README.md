@@ -126,5 +126,62 @@ docker-bigcode bigcode-ast-tools generate-vocabulary --strip-identifiers -o work
 
 This should generate `$DOCKER_GENERATED_DATA/java-vocabulary.tsv`.
 
+Similarly, we generate the vocabulary for python projects.
+
+```
+docker-bigcode bigcode-ast-tools generate-vocabulary --strip-identifiers -o workspace/python-vocab.tsv workspace/python-asts.json
+```
+
+Now, we will generate skipgram data for Java and Python to train our model. <br/>
+Run the below commands to generate the training data for Java 
+
+```
+mkdir $DOCKER_GENERATED_DATA/java-skipgram-data
+
+docker-bigcode bigcode-ast-tools generate-skipgram-data -v workspace/java-vocab.tsv --ancestors-window-size 2 --children-window-size 1 --without-siblings -o workspace/java-skipgram-data/skipgram-data workspace/java-asts.json
+```
+This will create `$DOCKER_GENERATED_DATA/java-skipgram-data/skipgram-data-001.txt.gz`
+(the number of files created depends on the number of cores)
+
+we will follow the similar process for generating training data for Python
+
+```
+mkdir $DOCKER_GENERATED_DATA/python-skipgram-data
+docker-bigcode bigcode-ast-tools generate-skipgram-data -v workspace/python-vocab.tsv --ancestors-window-size 2 --children-window-size 1 --without-siblings -o workspace/python-skipgram-data/skipgram-data workspace/python-asts.json
+```
+
+We will now learn 50 dimensions embeddings on this data. <br/>
+For Java run below commands<br/>
+
+```
+docker-bigcode sh -c "bigcode-embeddings train -o workspace/java-embeddings --vocab-size=10000 --emb-size=50 --optimizer=gradient-descent --batch-size=64 workspace/java-skipgram-data/skipgram-data*"
+JAVA_MODEL_NAME=$(basename $(ls $DOCKER_GENERATED_DATA/java-embeddings/embeddings.bin-* | tail -n1) ".meta")
+docker-bigcode bigcode-embeddings export workspace/java-embeddings/$JAVA_MODEL_NAME  -o workspace/java-embeddings.npy
+```
+
+For Python run below commands<br/>
+
+```
+
+docker-bigcode sh -c "bigcode-embeddings train -o workspace/python-embeddings --vocab-size=10000 --emb-size=50 --optimizer=gradient-descent --batch-size=64 workspace/python-skipgram-data/skipgram-data*"
+PYTHON_MODEL_NAME=$(basename $(ls $DOCKER_GENERATED_DATA/python-embeddings/embeddings.bin-* | tail -n1) ".meta")
+docker-bigcode bigcode-embeddings export workspace/python-embeddings/$PYTHON_MODEL_NAME  -o workspace/python-embeddings.npy
+```
+With this, we now have the  embeddings for Java and Python tokens which are saved as java-embeddings.npy and python-embeddings.npy respectively in the folder `$DOCKER_GENERATED_DATA`. This will prevent from 'Out of Vocabulary' error when evaluting the model with a new dataset.
+
+Now we create a database file to place the ASTs and other meta data information of all the projects.
+Run the below code to create DB from Submissions ASTs file.
+
+```
+python create_submission_asts_files.py
+python scripts/create_submissions.py
+```
+#### 3. Evaluate the model with a new dataset
+
+Run the below commands to evaluate the model using the previously trained weights with the new dataset.
+```
+./bin/suplearn-clone generate-dataset -c config.yml
+./bin/suplearn-clone evaluate -c config.yml -m ../data/dataset/trained-model.h5 --data-type=test -o final_results.json
+```
 
 
