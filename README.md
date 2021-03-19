@@ -2,6 +2,7 @@
 This research experiment is a part of Mining Software Repository course where this project follows the reproduction project of [cross language clone detection model][1] and tries to address the threat of cross language clone detection model.
 
 
+### Threat to Validity
 As mentioned by the authors of the paper, the data used for training and testing the clone-detection model is from a competitive source
 (https://atcoder.jp). Moreover, the data is taken are from the beginner level contests of this site.
 There are two possible ways to address this threat to validity: one proposed by authors and one by our team.
