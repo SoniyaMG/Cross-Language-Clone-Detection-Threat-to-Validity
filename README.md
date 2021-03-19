@@ -298,11 +298,19 @@ Run the below commands to evaluate the model using the previously trained weight
 ./bin/suplearn-clone generate-dataset -c config.yml
 ./bin/suplearn-clone evaluate -c config.yml -m trained-model.h5 --data-type=test -o final_results.json
 ```
-### 5. Results
+## Results
 The evaluation metrics such as accuracy and average precision will be saved in Json file in `process/final_results.json`.
 
 We noticed that the accuracy and precision for our new small dataset is 0.513 and 0.506 respectively. This result seems to be almost same compared to the evaluation metrics original dataset. This might be case as we also collected the dataset from a competetive website as done by the authors rather than a real time projects. Evlauting for the enterprise level code clones may give us a different results as the structure of the code may vary.
 
+
+## Process
+
+We followed the similar method to generate the embeddings of AST nodes (Vocubulary) for a different dataset. Later, evaluated with the trained weights from Assignment 2 for the new dataset.
+
+## Data
+
+A small dataset of 100 java-python code clones are collected from different websites. ASTs are generated for these clones and further used to evaluate the model.
 
 [1]: https://github.com/nagaraj-bahubali/Cross-Language-Clone-Detection/blob/master/doc/README.md
 [2]: https://github.com/nagaraj-bahubali/Cross-Language-Clone-Detection/blob/master/doc/README.md#2-training-and-evaluating-the-code-clone-detection-model
