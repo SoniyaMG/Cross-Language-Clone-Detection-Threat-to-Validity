@@ -108,7 +108,7 @@ This will create three files:
 
 Similarly generate the ASTs for python 
 ```
-bigcode-astgen-py --batch -o ../data/docker-generated-data/python-asts "../data/docker-generated-data/code_clones/*.py"
+docker-bigcode bigcode-astgen-py --batch -o workspace/python-asts 'workspace/code_clones/*.py'
 ```
 This will create three files:
 
