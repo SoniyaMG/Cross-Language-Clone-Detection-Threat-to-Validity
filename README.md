@@ -240,7 +240,7 @@ First, we will generate a vocabulary.
 docker-bigcode bigcode-ast-tools generate-vocabulary --strip-identifiers -o workspace/java-vocab.tsv workspace/java-asts.json
 ```
 
-This should generate `$DOCKER_GENERATED_DATA/java-vocabulary.tsv`.
+This should generate `$DOCKER_GENERATED_DATA/java-vocab.tsv`.
 
 Similarly, we generate the vocabulary for python projects.
 
