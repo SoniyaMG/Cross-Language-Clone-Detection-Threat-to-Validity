@@ -176,7 +176,7 @@ Run the below code to create DB from Submissions ASTs file.
 python create_submission_asts_files.py
 python scripts/create_submissions.py
 ```
-#### 3. Evaluate the model with a new dataset
+#### 4. Evaluate the model with a new dataset
 
 Run the below commands to evaluate the model using the previously trained weights with the new dataset.
 ```
