@@ -152,7 +152,7 @@ In order to avoid the out of vocabulary(AST nodes) error  and also to have the e
 7. Finally, we evaluated the previusly trained code clone detection weights with our small dataset 
 
 
-Below are the step by stepcommands in linkux (macOS) to evalute the model for the new dataset.
+Below are the step by step commands in linux (macOS) to evalute the model for the new dataset.
 
 
 ### 0. Environment setup
