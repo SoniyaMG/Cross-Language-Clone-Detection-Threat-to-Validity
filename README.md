@@ -1,5 +1,5 @@
 # Research Experiment to address the threat to validity
-Address the threat of cross language clone detection model
+This project follows the reproduction project of [cross language clone detection model][1] and tried to address the threat of cross language clone detection model.
 
 
 As mentioned by the authors of the paper, the data used for training and testing the clone-detection model is from a competitive source
@@ -13,17 +13,16 @@ the trained model. Furthermore, we will observe how this model differs in detect
 
 Below are the steps that we followed to address the mentioned threat.
 1. We collected a small dataset of 100 java-python code clones from various coding websites such as Codechef (https://www.codechef.com/),
-Hackerrank (https://www.hackerrank.com/) and geeks for geeks (https://www.geeksforgeeks.org/)
-2. We generated the ASTs for this dataset. However, there were some errors in generating ASTs for some projects so we excluded those projects.
+Hackerrank (https://www.hackerrank.com/) and geeks for geeks (https://www.geeksforgeeks.org/). 
+In order to avoid the out of vocabulary(AST nodes) error  and also to have the embedding of the AST nodes when evaluating the model with a new dataset, we generate embedding of AST nodes by training the skipgram model.
+2. We generated the ASTs for this dataset. However, there were some errors in generating ASTs for some projects so we excluded those projects (Ended up with almost 90 projects).
 3. We generated the vocabulary for these ASTs for both java and python
-4. Now, to generate the embeddings for these AST nodes, we generated Skipgram data for both 
+4. Now, to generate the embeddings for these AST nodes, Initially we generated Skipgram data for both 
 5. Trained the skipgram model with the generated skipgram data and get the embeddings for the ASTs
 6. Created a database with the ASTs of all projects
-7. Finally, we eveluated the previusly trained code clone detection weights with our small dataset 
+7. Finally, we evaluated the previusly trained code clone detection weights with our small dataset 
 
-We noticed that the accuracy and precision for our new small dataset seems to be slighty varying compared to the evaluation metrics
-original dataset. This might be case as we also collected the dataset from a competetive website as done by the authoes  but not the real one. Evlauting for the 
-enterprise level code clones may give us a different results as the structure of the code may vary.
+We noticed that the accuracy and precision for our new small dataset is 0.513 and 0.506 respectively. This result seems to be almost same compared to the evaluation metrics original dataset. This might be case as we also collected the dataset from a competetive website as done by the authors rather than a real time projects. Evlauting for the enterprise level code clones may give us a different results as the structure of the code may vary.
 
 
 ## Requirements: <br />
@@ -34,11 +33,10 @@ enterprise level code clones may give us a different results as the structure of
 **Software:** <br />
 * OS: Windows/linux <br />
 * python 3.6.2 <br />
-* Anaconda application <br />
-* Docker application <br />
+* [Anaconda][11] application <br />
+* [Docker][5] application <br />
 
-
-Below are the steps to evalute the model for the new dataset.
+Below are the steps to evalute the model for the new dataset in linux[macOS].
 
 ## 0. Environment setup
 
@@ -65,8 +63,9 @@ There are two major steps of this research experiment to address the threat
 2. Evaluate the Code Clone Detection model for the new small dataset
 
 The dataset is already placed in data/docker-generated-dataset
-Now, to preprocess the data we will use [Docker][1].
-The Docker image is available as `tuvistavie/bigcode-tools`
+
+Now, to preprocess the data we will use [Docker][2].
+The Docker image is available as [`tuvistavie/bigcode-tools`][3]
 
 To install it, you can run
 
@@ -132,7 +131,7 @@ Similarly, we generate the vocabulary for python projects.
 docker-bigcode bigcode-ast-tools generate-vocabulary --strip-identifiers -o workspace/python-vocab.tsv workspace/python-asts.json
 ```
 
-Now, we will generate skipgram data for Java and Python to train our model. <br/>
+Now, we will generate [skipgram][6] like data for Java and Python to train our model. <br/>
 Run the below commands to generate the training data for Java 
 
 ```
@@ -183,5 +182,12 @@ Run the below commands to evaluate the model using the previously trained weight
 ./bin/suplearn-clone evaluate -c config.yml -m trained-model.h5 --data-type=test -o final_results.json
 ```
 
+The evaluation metrics such as accuracy and average precision will be saved in Json file in `process/final_results.json`
 
+[1]: https://github.com/nagaraj-bahubali/Cross-Language-Clone-Detection
+[2]: https://docs.docker.com/engine/installation/
+[3]: https://hub.docker.com/r/tuvistavie/bigcode-tools/
+[5]: https://docs.docker.com/desktop/
+[6]: https://www.tensorflow.org/tutorials/word2vec
+[11]: https://www.anaconda.com/products/individual#Downloads
 [16]: https://github.com/SoniyaMG/Cross-Language-Clone-Detection-Threat-to-Validity
