@@ -181,7 +181,7 @@ python scripts/create_submissions.py
 Run the below commands to evaluate the model using the previously trained weights with the new dataset.
 ```
 ./bin/suplearn-clone generate-dataset -c config.yml
-./bin/suplearn-clone evaluate -c config.yml -m ../data/dataset/trained-model.h5 --data-type=test -o final_results.json
+./bin/suplearn-clone evaluate -c config.yml -m trained-model.h5 --data-type=test -o final_results.json
 ```
 
 
