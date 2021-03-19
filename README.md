@@ -97,7 +97,7 @@ directory, and expose the container port `6006` to the same port on the host.
 We will now generate the ASTs for all the data.
 
 ```
-docker-bigcode bigcode-astgen-java --batch -o workspace/java-asts 'workspace/repositories/**/*.java'
+docker-bigcode bigcode-astgen-java --batch -o workspace/java-asts 'workspace/code_clones/*.java'
 ```
 
 This will create three files:
