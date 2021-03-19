@@ -34,8 +34,8 @@ enterprise level code clones may give us a different results as the structure of
 **Software:** <br />
 * OS: Windows/linux <br />
 * python 3.6.2 <br />
-* [Anaconda][11] application <br />
-* [Docker][5] application <br />
+* Anaconda application <br />
+* Docker application <br />
 
 
 Below are the steps to evalute the model for the new dataset.
