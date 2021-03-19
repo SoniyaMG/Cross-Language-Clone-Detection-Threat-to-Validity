@@ -311,7 +311,7 @@ We followed the similar method to generate the embeddings of AST nodes (Vocubula
 
 ## Data
 
-A small dataset of 100 java-python code clones are collected from different websites. ASTs are generated for these clones and further used to evaluate the model.
+A small dataset of 100 java-python code clones are collected from different websites and placed under `$DOCKER_GENERATED_DATA`. ASTs are generated for these clones and further used to evaluate the model.
 
 [1]: https://github.com/nagaraj-bahubali/Cross-Language-Clone-Detection/blob/master/doc/README.md
 [2]: https://github.com/nagaraj-bahubali/Cross-Language-Clone-Detection/blob/master/doc/README.md#2-training-and-evaluating-the-code-clone-detection-model
