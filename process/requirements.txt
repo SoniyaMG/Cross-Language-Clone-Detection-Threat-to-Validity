@@ -1,0 +1,8 @@
+tensorflow==1.13.1
+keras==2.1.2
+numpy==1.18
+scipy==1.1.0
+scikit-learn==0.21.3
+h5py==2.7.0
+bigcode-astgen
+-e .
