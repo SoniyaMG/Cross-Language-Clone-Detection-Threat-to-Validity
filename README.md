@@ -66,7 +66,7 @@ There are two major steps of this research experiment to address the threat
 
 The dataset is already placed in data/docker-generated-dataset
 Now, to preprocess the data we will use [Docker][1].
-The Docker image is available as [`tuvistavie/bigcode-tools`][2]
+The Docker image is available as `tuvistavie/bigcode-tools`
 
 To install it, you can run
 
@@ -185,3 +185,4 @@ Run the below commands to evaluate the model using the previously trained weight
 ```
 
 
+[16]: https://github.com/SoniyaMG/Cross-Language-Clone-Detection-Threat-to-Validity
