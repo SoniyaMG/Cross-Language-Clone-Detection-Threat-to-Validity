@@ -166,7 +166,7 @@ setup and activate the environment
 conda create -n msr_venv python=3.6.2 anaconda
 conda activate msr_venv
 ```
-Once the environment is setup, download the repository and `cd` to the [`process`][16] folder inside project root folder and run below
+Once the environment is setup, download the repository and `cd` to the `process` folder inside project root folder and run below
 commands
 ```
 pip install -r requirements.txt
