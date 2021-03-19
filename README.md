@@ -1,4 +1,4 @@
-# Research Experiment to address the threat to validity
+# Research Experiment to Address the Threat to Validity
 This research experiment is a part of Mining Software Repository course where this project follows the reproduction project of [cross language clone detection model][1] and tries to address the threat of cross language clone detection model.
 
 
