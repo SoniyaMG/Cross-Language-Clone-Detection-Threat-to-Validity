@@ -77,7 +77,7 @@ docker run tuvistavie/bigcode-tools ls
 ```
 Note that download might take a while.
 
-#### 1. Setting up workspace for pre-processed data
+## 1. Setting up workspace for pre-processed data
  
  We will use `docker-generated-data` folder within `data` folder to store all the data genarated from running the docker commands. 
  Make sure you are still under `process` folder.
@@ -94,7 +94,7 @@ alias docker-bigcode='docker run -p 6006:6006 -v $DOCKER_GENERATED_DATA:/bigcode
 This will map the container `/bigcode-tools/workspace` directory to the host `$DOCKER_GENERATED_DATA`
 directory, and expose the container port `6006` to the same port on the host.
 
-#### 2. Preprocessing the data
+## 2. Preprocessing the data
 
 We will now generate the ASTs for all the data.
 
@@ -118,7 +118,7 @@ This will create three files:
 2. `$DOCKER_GENERATED_DATA/python-asts.txt`: the name of the file from which each AST was extracted
 3. `$DOCKER_GENERATED_DATA/python-asts_failed.txt`: the list of files for which parse failed 
 
-#### 3. Generating embeddings
+## 3. Generating embeddings
 
 First, we will generate a vocabulary.
 
@@ -177,7 +177,7 @@ Run the below code to create DB from Submissions ASTs file.
 python create_submission_asts_files.py
 python scripts/create_submissions.py
 ```
-#### 4. Evaluate the model with a new dataset
+## 4. Evaluate the model with a new dataset
 
 Run the below commands to evaluate the model using the previously trained weights with the new dataset.
 ```
