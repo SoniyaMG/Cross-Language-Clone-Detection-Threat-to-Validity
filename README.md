@@ -28,6 +28,8 @@ In order to avoid the out of vocabulary(AST nodes) error  and also to have the e
 We noticed that the accuracy and precision for our new small dataset is 0.513 and 0.506 respectively. This result seems to be almost same compared to the evaluation metrics original dataset. This might be case as we also collected the dataset from a competetive website as done by the authors rather than a real time projects. Evlauting for the enterprise level code clones may give us a different results as the structure of the code may vary.
 
 
+Below are the steps to evalute the model for the new dataset in linux(macOS).
+
 ## Requirements: <br />
 **Hardware:** <br />
 * Storage space required: 1-2 GB <br />
@@ -38,8 +40,6 @@ We noticed that the accuracy and precision for our new small dataset is 0.513 an
 * python 3.6.2 <br />
 * [Anaconda][11] application <br />
 * [Docker][5] application <br />
-
-Below are the steps to evalute the model for the new dataset in linux[macOS].
 
 ## 0. Environment setup
 
