@@ -121,7 +121,7 @@ This will create three files:
 First, we will generate a vocabulary.
 
 ```
-docker-bigcode bigcode-ast-tools generate-vocabulary --strip-identifiers -o workspace/java-vocabulary.tsv workspace/java-asts.json
+docker-bigcode bigcode-ast-tools generate-vocabulary --strip-identifiers -o workspace/java-vocab.tsv workspace/java-asts.json
 ```
 
 This should generate `$DOCKER_GENERATED_DATA/java-vocabulary.tsv`.
