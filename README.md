@@ -137,7 +137,6 @@ Run the below commands to generate the training data for Java
 
 ```
 mkdir $DOCKER_GENERATED_DATA/java-skipgram-data
-
 docker-bigcode bigcode-ast-tools generate-skipgram-data -v workspace/java-vocab.tsv --ancestors-window-size 2 --children-window-size 1 --without-siblings -o workspace/java-skipgram-data/skipgram-data workspace/java-asts.json
 ```
 This will create `$DOCKER_GENERATED_DATA/java-skipgram-data/skipgram-data-001.txt.gz`
