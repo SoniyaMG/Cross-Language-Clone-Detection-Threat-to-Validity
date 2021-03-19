@@ -301,8 +301,8 @@ Run the below commands to evaluate the model using the previously trained weight
 ## Results
 The evaluation metrics such as accuracy and average precision will be saved in Json file in `process/final_results.json`.
 
-We noticed that the accuracy and precision for our new small dataset is 0.513 and 0.506 respectively. This result seems to be almost same compared to the evaluation metrics original dataset. Though we use different dataset collected from various websites for testing, the model is able to identify the clones.  
-Evlauting for the enterprise level code clones may give us a different results as the structure of the code may vary.
+We noticed that the accuracy and precision for our new small dataset is 0.513 and 0.506 respectively. This result seems to be almost same compared to the evaluation metrics of the original dataset. Though we use different dataset collected from various websites for testing, the model is able to identify the clones.  
+Evaluting for the enterprise level code clones may give us a different results as the structure of the code may vary.
 
 
 ## Process
