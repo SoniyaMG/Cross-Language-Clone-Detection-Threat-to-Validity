@@ -8,7 +8,7 @@ There are two possible ways to address this threat to validity: one proposed by 
 As suggested by the authors, training/fine-tuning the model with the real-world data.
 This is far beyond the infrastructure of the team and it does not seem feasible.
 So we as a team has decided to collect small dataset from various coding websites, manually annotate them and validate against
-the trained model. Furthermore, we will observe how this model differs in detecting the clones for the different dataset.\\
+the trained model. Furthermore, we will observe how this model differs in detecting the clones for the different dataset.\
 
 
 Below are the steps that we followed to address the mentioned threat.
@@ -24,3 +24,7 @@ Hackerrank (https://www.hackerrank.com/) and geeks for geeks (https://www.geeksf
 We noticed that the accuracy and precision for our new small dataset seems to be slighty varying compared to the evaluation metrics
 original dataset. This might be case as we also collected the dataset from a competetive website as done by the authoes  but not the real one. Evlauting for the 
 enterprise level code clones may give us a different results as the structure of the code may vary.
+
+```
+dlkmf,
+```
